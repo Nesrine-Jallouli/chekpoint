@@ -1,0 +1,34 @@
+ALGORITHM chekpoint-structure
+VAR
+   i element: INTEGER ;
+   set1 : ARRAY_OF INTEGER[10];
+   set2 : ARRAY_OF INTEGER[10];
+   som,j: INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO set1.length -1 DO
+    {
+        element:=set1[i];
+    REPEAT
+        IF (set2[j]==element) THEN 
+        element=0;
+        BREAK;
+        ELSE j=j+1;
+        END-IF
+    UNTIL (j==(set2.length -1)
+    som=som+element;
+    }
+
+    FOR i FROM 0 TO set2.length -1 DO
+    {
+        element:=set2[i]
+    REPEAT
+        IF (set1[j]==element) THEN 
+        element=0;
+        BREAK;
+        ELSE j=j+1
+        END-IF
+    UNTIL (j==set1.length -1)
+    som=som+element;
+    }
+    write("Output:" som);
+END

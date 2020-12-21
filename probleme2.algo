@@ -1,0 +1,33 @@
+ALGORITHM chekpoint-structure
+VAR
+   i element: INTEGER ;
+   set1 : HASH_TABLE<INTEGER,INTEGER>;
+   set2 : HASH_TABLE<INTEGER,INTEGER>;
+   som,j: INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO set1.length -1 DO
+    {
+        element:=set1.get[i];
+    REPEAT
+        IF (set2.get[j]==element) THEN 
+            som=som+element;     
+        ELSE  j=j+1;
+              
+        END-IF
+    UNTIL (j==(set2.length -1))
+    
+    }
+
+    FOR i FROM 0 TO set2.length -1 DO
+    {
+        element=set2.get[i]
+    REPEAT
+        IF (set1.get[j]==element) THEN 
+            som=som+element;
+        ELSE 
+             j=j+1;
+        END-IF
+    UNTIL (j==(set1.length -1))
+    }
+    write("Sum of overlapping elements: " som);
+END
